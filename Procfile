@@ -1,2 +1,2 @@
-web: gunicorn vimm0-blog.wsgi --log-file -
+web: gunicorn Advancing-the-Blog.wsgi --log-file -
 
