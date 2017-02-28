@@ -1,2 +1,2 @@
-web: gunicorn Advancing-the-Blog/src/blog.wsgi --log-file -
+web: gunicorn blog.wsgi --log-file -
 
