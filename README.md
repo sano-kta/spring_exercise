@@ -1,7 +1,25 @@
 # spring_exercise
 consists django experimental codes for blog app
 
-# cheatsheet django
+### Project TO-DO list 2017
+- [x] Post
+- [x] Post list
+- [x] Account
+- [x] Crispy_forms
+- [x] markdown_deux
+- [x] pagedown
+- [x] comments
+- [x] breadcrumb
+- [x] footer
+- [x] flatpages
+- [x] heroku host
+- [ ] taggit
+- [ ] media files render and postgres
+- [ ] feeds and recent notification
+- [ ] user privilages and rules
+
+
+# Cheatsheet Django
 ==================
 1.django.apps
 
