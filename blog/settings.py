@@ -46,6 +46,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #flat pages
+    'django.contrib.sites',
+    'django.contrib.flatpages',
+
      # third party
     'crispy_forms',
     'markdown_deux',
@@ -68,6 +73,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+     #flat pages
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 LOGIN_URL = "/login/"
