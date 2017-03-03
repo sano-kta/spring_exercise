@@ -71,40 +71,39 @@ consists django experimental codes for blog app
 		email_user(subject, message, from_email=None, **kwargs)
 
 Manager Methods:
-
+ 
  class models.UserManager
 
 	create_user(username, email=None, password=None, **extra_fields)
 	create_superuser(username, email, password, **extra_fields)
 
 AnonymousUser object:
-
- class models.AnonymousUser
+	class models.AnonymousUser
 
 Permission model:
 
- class models.Permission
+	class models.Permission
 
-	Fields:
-		name 
-		content_type 
-		codename
+		Fields:
+			name 
+			content_type 
+			codename
 
-	Validators:
-		class validators.ASCIIUsernameValidator¶
-		class validators.UnicodeUsernameValidator¶
+		Validators:
+			class validators.ASCIIUsernameValidator¶
+			class validators.UnicodeUsernameValidator¶
 
-	Login and logout signals:
-		user_logged_in()
-			sender
-			request
-			user
-		user_logged_out()
-			sender
-			request
-			user
-		user_login_failed()
-			sender
-			credentials
+		Login and logout signals:
+			user_logged_in()
+				sender
+				request
+				user
+			user_logged_out()
+				sender
+				request
+				user
+			user_login_failed()
+				sender
+				credentials
 
 
