@@ -21,6 +21,9 @@ from django.contrib import admin
 
 from accounts.views import (login_view, register_view, logout_view)
 
+# from django.contrib.flatpages import views
+
+
 urlpatterns = [
     
     url(r'^admin/', admin.site.urls),
@@ -30,9 +33,14 @@ urlpatterns = [
     url(r'^login/', login_view, name='login'),
     url(r'^logout/', logout_view, name='logout'),
     url(r'^', include("posts.urls", namespace='posts')),
+#flat pages
+    url(r'^pages/', include('django.contrib.flatpages.urls')),
     #url(r'^posts/$', "<appname>.views.<function_name>"),
 ]
 
+# urlpatterns += [
+#     url(r'^about-us/$', views.flatpage),
+# ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
