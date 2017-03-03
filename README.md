@@ -4,23 +4,23 @@ consists django experimental codes for blog app
 # cheatsheet django
 ==================
 1.django.apps
-	class AppConfig
-		Configurable attributes
+	*class AppConfig*
+		*Configurable attributes:*
 			AppConfig.name
 			AppConfig.label
 			AppConfig.verbose_name
 			AppConfig.path
 
-		Read-only attributes
+		Read-only attributes:
 			AppConfig.module
 			AppConfig.models_module
 
-		Methods
+		Methods:
 			AppConfig.get_models()
 			AppConfig.get_model(model_name)
 			AppConfig.ready()
 
-		Application registry
+		Application registry:
 			apps.ready
 			apps.get_app_configs()
 			apps.get_app_config(app_label)
@@ -67,26 +67,26 @@ class models.User
 		has_module_perms(package_name)
 		email_user(subject, message, from_email=None, **kwargs)
 
-	Manager Methods
-	class models.UserManager
-		create_user(username, email=None, password=None, **extra_fields)
-		create_superuser(username, email, password, **extra_fields)
+Manager Methods
+class models.UserManager
+	create_user(username, email=None, password=None, **extra_fields)
+	create_superuser(username, email, password, **extra_fields)
 
-	AnonymousUser object
-	class models.AnonymousUser
+AnonymousUser object
+class models.AnonymousUser
 
-	Permission model
-	class models.Permission
+Permission model
+class models.Permission
 	Fields:
 		name 
 		content_type 
 		codename
 
-	Validators
+	Validators:
 		class validators.ASCIIUsernameValidator¶
 		class validators.UnicodeUsernameValidator¶
 
-	Login and logout signals
+	Login and logout signals:
 		user_logged_in()
 			sender
 			request
