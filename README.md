@@ -4,8 +4,10 @@ consists django experimental codes for blog app
 # cheatsheet django
 ==================
 1.django.apps
-	*class AppConfig*
-		*Configurable attributes:*
+
+ class AppConfig:
+	
+		Configurable attributes:
 			AppConfig.name
 			AppConfig.label
 			AppConfig.verbose_name
@@ -33,7 +35,8 @@ consists django experimental codes for blog app
 
 3.django.contrib.auth
 
-class models.User
+ class models.User
+
 	fields:
 		username
 		first_name
@@ -67,16 +70,21 @@ class models.User
 		has_module_perms(package_name)
 		email_user(subject, message, from_email=None, **kwargs)
 
-Manager Methods
-class models.UserManager
+Manager Methods:
+
+ class models.UserManager
+
 	create_user(username, email=None, password=None, **extra_fields)
 	create_superuser(username, email, password, **extra_fields)
 
-AnonymousUser object
-class models.AnonymousUser
+AnonymousUser object:
 
-Permission model
-class models.Permission
+ class models.AnonymousUser
+
+Permission model:
+
+ class models.Permission
+
 	Fields:
 		name 
 		content_type 
