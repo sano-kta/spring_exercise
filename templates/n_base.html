@@ -1,0 +1,401 @@
+{% load static %}
+<!--DOCTYPE html -->
+<html>
+<head>
+<title>{% block head_title %}Vimm0 blog{% endblock head_title %}</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' >
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel='stylesheet' href='{% static "css/base.css" %}' />
+<script src="{% static 'js/button.js' %}"></script>   
+
+<style>
+{% block style %}{% endblock style %}
+</style>
+
+{% block head_extra %} {% endblock head_extra %}
+</head>
+<body>
+<div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+                fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+
+
+{% include "messages_display.html" %}
+<style>
+/*Developer mode*/
+.navbar-nav.navbar-right .btn {
+    position: relative;
+    z-index: 2;
+    padding: 4px 20px;
+    margin: 10px auto;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #9d9d9d;
+}
+.btn.btn-outline {
+    background-color: transparent;
+}
+.btn.btn-circle {
+    border-radius: 50px;
+    color: none;
+
+}
+.navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px;
+    text-decoration: none !important
+
+}
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+a {
+    color: #428bca;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+a:-webkit-any-link {
+    color: -webkit-link;
+    /*text-decoration: underline;*/
+    cursor: auto;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.nav.navbar-nav.navbar-right
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+#navbar-collapse-3.collapse.navbar-collapse
+
+.collapse {
+    display: none;
+    visibility: hidden;
+}
+
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+:before, :after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:before, :after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/*Developer mode*/
+    /*
+Code snippet by maridlcrmn for Bootsnipp.com
+Follow me on Twitter @maridlcrmn
+*/
+
+.navbar-brand { position: relative; z-index: 2;    text-decoration: none !important;}
+
+.navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 6px auto; }
+
+.navbar .navbar-collapse { position: relative; }
+.navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
+
+.navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
+.navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
+.navbar.navbar-inverse .nav-collapse { background-color: #222; }
+.navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
+.nav-collapse>li { float: right; }
+
+.btn.btn-circle { border-radius: 50px; }
+.btn.btn-outline { background-color: transparent; }
+
+@media screen and (max-width: 767px) {
+    .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 15px; padding-right: 15px; } 
+    
+    .navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
+    .navbar .nav-collapse .navbar-form { margin: 0; }
+    .nav-collapse>li { float: none; }
+}
+a:hover,
+a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+}
+
+.btn-default:hover, .btn-default:focus {
+    background-color: #333 !important;
+    color: #fff !important;}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    text-decoration: none;
+    cursor: auto;
+}
+/*custom bullets*/
+
+.custom-bullet li {
+    display: block;
+}
+
+.custom-bullet li:before
+{
+    /*Using a Bootstrap glyphicon as the bullet point*/
+    /*content: "\e080";*/
+    content: "\2212";
+    font-family: 'Glyphicons Halflings';
+    font-size: 9px;
+    float: left;
+    margin-top: 4px;
+    margin-left: -17px;
+    color: #CCCCCC;
+}
+
+
+/*custom bullets*/
+
+</style>
+    
+    <!-- Second navbar for search -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'posts:list' %}">Learning</a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-3">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Works</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+            <!-- <li>
+              <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
+            </li> -->
+          </ul>
+          <!-- <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse3">
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            </form>
+          </div> -->
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
+<div class="container-fluid">
+  <div class="row-fluid" style="margin-top: 5em;width: 100%; padding-left:20%;">
+    <!-- <div class="span2 col-sm-8 col-md-9"> -->
+    <div class="span2" style="width: 75%;">
+
+      <!--Body  content block content from other templates-->
+      {% block content %}{% endblock content %}
+    </div>
+    <div class="span10 col-sm-3" >
+      <!--Sidebar content-->
+                     <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
+                        <div class="panel-body">
+                            <h3 style="font-size: 18px;"><img src="http://www.icon2s.com/wp-content/uploads/2013/07/black-white-metro-python-icon.png" eight="28" width="28" /> Python Learning</h3>
+                            <p>"Python has been an important part of Google since the beginning, and remains so as the system grows and evolves. Today dozens of Google engineers use Python, and we're looking for more people with skills in this language." said Peter Norvig, director of search quality at Google, Inc.</p>
+                        </div>
+                     <!-- </div> -->
+            </div>
+            <!-- <div class="col-sm-3"> -->
+                <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
+                    <div class="panel-body">
+                        <a href="#">
+                          Join as Author
+                          
+                        </a>
+                    </div>
+                </div>
+            <!-- </div> -->
+            <!-- <div class="col-sm-3"> -->
+                <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
+                    <div class="panel-body">
+                        <h3 style="font-size: 18px;">Recent Post</h3>
+                        <ul class="list-group">
+                             <li class="list-group-item">Cras justo odio</li> 
+                             <li class="list-group-item">Dapibus ac facilisis in</li> 
+                             <li class="list-group-item">Morbi leo risus</li> 
+                             <li class="list-group-item">Porta ac consectetur ac</li> 
+                             <li class="list-group-item">Vestibulum at eros</li>
+                         </ul>
+
+                       
+                    </div>
+                </div>
+            <!-- </div> -->
+            <!-- <div class="col-sm-3"> -->
+                <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
+                    <div class="panel-body">
+                        <h3 style="font-size: 18px;">Recent Post</h3>
+                         <ul class="custom-bullet">
+                            <li>date library</li>
+                            <li>string Manipulation</li>
+                            <li>data hierarchy</li>
+                            <li>data structure</li>
+                            <li>data normalization</li>
+                        </ul>
+                    </div>
+                </div>
+            <!-- </div> -->
+            <!-- <div class="col-sm-3"> -->
+                <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
+                    <div class="panel-body">
+                        <h3 style="font-size: 18px;">Recent Comments</h3>
+                        <ul class="custom-bullet">
+                            <li> date library</li>
+                            <li >string Manipulation</li>
+                            <li>data hierarchy</li>
+                            <li>data structure</li>
+                            <li>data normalization</li>
+                        </ul>
+                    </div>
+                </div>
+            <!-- </div> -->
+            <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
+                    <div class="panel-body">
+                        <h3 style="font-size: 18px;">Popular Tags</h3>
+                        <ul class="list-group"> 
+                            <li class="list-group-item justify-content-between"> Cras justo odio <span class="badge badge-default badge-pill">14</span> 
+                            </li> 
+                            <li class="list-group-item justify-content-between"> Dapibus ac facilisis in <span class="badge badge-default badge-pill">2</span> 
+                            </li> 
+                            <li class="list-group-item justify-content-between"> Morbi leo risus <span class="badge badge-default badge-pill">1</span> 
+                            </li> 
+                        </ul>
+
+                            <!-- <a href="#" class="btn btn-default">Inbox <span class="badge">42</span></a>
+                            <a href="#" class="btn btn-default">Inbox <span class="badge">42</span></a>
+                            <a href="#" class="btn btn-default">Inbox <span class="badge">42</span></a>
+                            <a href="#" class="btn btn-default">Inbox <span class="badge">42</span></a>
+                            <a href="#" class="btn btn-default">Inbox <span class="badge">42</span></a> -->
+                    </div>
+            </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--footer -->
+<div class="panel-footer">
+                    <style>body{/*font-family: 'Poppins',sans-serif;*/
+                            font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+                                }
+                    </style>
+<p class="text-center">Made with <i class="fa fa-heart-o" aria-hidden="true"></i> having excessive <i class="fa fa-coffee" aria-hidden="true"></i> and <i class="fa fa-music" aria-hidden="true"></i> <br>by vimm0.<br>Powered by Django.
+</p>
+</div>
+
+
+
+      
+
+    
+   
+
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script   src="http://code.jquery.com/jquery-1.12.2.min.js"   integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk="   crossorigin="anonymous"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js'></script>
+
+</body>
+</html>
+
+
+
+
