@@ -6,7 +6,11 @@
 {% block head_title %}
 {{ instance.title }} | {{ block.super }}
 {% endblock head_title %}
-
+<style>
+     /* h1 {
+    font-size: 26px;
+}*/
+</style>
 
  {% block post_detail_link %}
   <li><a href='{{ instance.get_absolute_url }}'>{{ instance.title }}</a></li>
@@ -15,7 +19,9 @@
 
 
 {% block content %}
-<div class='col-sm-6 col-sm-offset-3'>
+<div class='col-sm-8'>
+
+<!-- <div class='col-sm-6 col-sm-offset-3'> -->
     {% if instance.image %}
     <img src='{{ instance.image.url }}' class='img-responsive' />
     {% endif %}
