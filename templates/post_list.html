@@ -1,126 +1,142 @@
 {% extends "base.html" %}
 {% block content %}
-<style>
-      
+    <style>
+    /*button*/
 
-#custom-search-input {
-        margin:0;
-        margin-top: 10px;
-        padding: 0;
+        /*button*/
+.col-sm-8 button  a{
+    color:#fff;
+}
+
+.col-sm-8 h3  a{
+    color:#4285F4;
+}
+
+.pager ul li a{
+    color:#777;
+
+}
+    #custom-search-input {
+    margin:0;
+    margin-top: 10px;
+    padding: 0;
     }
- 
+    
     #custom-search-input .search-query {
-        padding-right: 3px;
-        padding-right: 4px \9;
-        padding-left: 3px;
-        padding-left: 4px \9;
-        /* IE7-8 doesn't have border-radius, so don't indent the padding */
- 
-        margin-bottom: 0;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
     }
- 
+    
     #custom-search-input button {
-        border: 0;
-        background: none;
-        /** belows styles are working good */
-        padding: 2px 5px;
-        margin-top: 2px;
-        position: relative;
-        left: -28px;
-        /* IE7-8 doesn't have border-radius, so don't indent the padding */
-        margin-bottom: 0;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        color:#777777;
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color:#777777;
     }
- 
+    
     .search-query:focus + button {
-        z-index: 3;   
+    z-index: 3;
     }
-.pagination {text-align: center;}
-</style>
-
-<div class='col-sm-8'>
-    <h1>{{ title }}</h1>
-<form method='GET' action='' class='row'>
-        <div class='col-sm-8'>
-        <div id="custom-search-input">
-            <div class="input-group">
-                <input type="text" class="  search-query form-control" placeholder="Search" />
-                <span class="input-group-btn">
-                    <button class="btn btn-danger" type="button">
-                        <span class=" glyphicon glyphicon-search"></span>
-                    </button>
-                </span>
+    .pagination {text-align: center;}
+    </style>
+    <div class='col-sm-8'>
+        <h1>{{ title }}</h1>
+        <form method='GET' action='' class='row'>
+            <div class='col-sm-8'>
+                <div id="custom-search-input">
+                    <div class="input-group">
+                        <input type="text" class="  search-query form-control" placeholder="Search" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="button">
+                            <span class=" glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <!-- <div class='col-sm-6 col-sm-offset-3'>
+                    <h1>{{ title }}</h1>
+                    <form method='GET' action='' class='row'>
+                        <div class='col-sm-6'>
+                            <div id="custom-search-input">
+                                <div class="input-group">
+                                    <input type="text" class="  search-query form-control" placeholder="Search" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-danger" type="button">
+                                        <span class=" glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>      -->
+                            <!-- <div class='input-group'>
+                                <input class='form-control' type='text' name='q' placeholder='Search posts' value='{{ request.GET.q }}'/>
+                                <span class='input-group-btn'>
+                                    <input class='btn btn-default' type='submit' value='Search' />
+                                    <button class='btn btn-default' type='submit'>Search <i class="fa fa-search"></i></button>
+                                </span>
+                            </div> -->
             </div>
-        </div>
+        </form>
+        {% for obj in object_list %}
+            <!-- <div class="row"> -->
+            <!-- <div class="col-sm-12" style="width: 10%;"> -->
+            <!-- <div class="thumbnail"> -->
+            {% if obj.image %}
+                <img src='{{ obj.image.url }}' class='img-responsive' />
+            {% endif %}
+            <!-- <div class="caption post-detail-item"> -->
+            {% if obj.draft %}<h3>Staff only: Draft</h3>{% endif %} {% if obj.publish > today %}<h3>Staff Only: Future Post</h3>{% endif %}
+            <h3><a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a> <small>{{ obj.publish }}</small></h3>
+            {% if obj.user.get_full_name %}<p>Author: {{ obj.user.get_full_name }}</p>{% endif %}
+            {{ obj.get_markdown|truncatechars_html:120 }}
+            
+            <button type="button"  class="btn btn-primary rippler rippler-default" ><a href="{{ obj.get_absolute_url }}" >view</a></button>
 
+            <!-- </div> -->
+            <!-- </div> -->
+            <!-- </div> -->
+            <hr/>
+            <!-- </div> -->
+        {% endfor %}
+        <div class="text-center">
+        <!-- <div class="pagination">
+            <span class="step-links">
+                {% if object_list.has_previous %}
+                    <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a>
+                {% endif %}
 
-<!-- <div class='col-sm-6 col-sm-offset-3'>
-    <h1>{{ title }}</h1>
-<form method='GET' action='' class='row'>
-        <div class='col-sm-6'>
-        <div id="custom-search-input">
-            <div class="input-group">
-                <input type="text" class="  search-query form-control" placeholder="Search" />
-                <span class="input-group-btn">
-                    <button class="btn btn-danger" type="button">
-                        <span class=" glyphicon glyphicon-search"></span>
-                    </button>
+                <span class="current">
+                    Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
                 </span>
-            </div>
-        </div>      -->
 
-            <!-- <div class='input-group'>
-                <input class='form-control' type='text' name='q' placeholder='Search posts' value='{{ request.GET.q }}'/>
-                <span class='input-group-btn'>
-                    <input class='btn btn-default' type='submit' value='Search' />
-                    <button class='btn btn-default' type='submit'>Search <i class="fa fa-search"></i></button>
-                </span>
-            </div> -->
+                {% if object_list.has_next %}
+                    <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>
+                {% endif %}
+            </span>
+        </div> -->
+            <nav class="pager" aria-label="...">
+              <ul class="pager">
+                <li class=" previous"><a type="button" class="btn btn-default" href="#"><span aria-hidden="true">&larr;</span>Older</a></li>
+                <li class=" next"><a type="button" class="btn btn-default" href="#"><span aria-hidden="true">&rarr;</tspan>Newer</a></li>
+              </ul>
+            </nav>
         </div>
-</form>
-{% for obj in object_list %}
-<!-- <div class="row"> -->
-  <!-- <div class="col-sm-12" style="width: 10%;"> -->
-    <!-- <div class="thumbnail"> -->
-        {% if obj.image %}
-         <img src='{{ obj.image.url }}' class='img-responsive' />
-        {% endif %}
-      <!-- <div class="caption post-detail-item"> -->
-        {% if obj.draft %}<h3>Staff only: Draft</h3>{% endif %} {% if obj.publish > today %}<h3>Staff Only: Future Post</h3>{% endif %}
-        <h3><a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a> <small>{{ obj.publish }}</small></h3>
-        {% if obj.user.get_full_name %}<p>Author: {{ obj.user.get_full_name }}</p>{% endif %}
-        {{ obj.get_markdown|truncatechars_html:120 }}
-        <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p>
-      <!-- </div> -->
-    <!-- </div> -->
-  <!-- </div> -->
-<hr/>
-<!-- </div> -->
-
-
-{% endfor %}
-
-<div class="text-center">
-    <nav aria-label="Page navigation example"> 
-        <ul class="pagination justify-content-center"> 
-            <li class="page-item disabled"> <a class="page-link" href="#" tabindex="-1">Previous</a> </li> <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li> 
-            <li class="page-item"><a class="page-link" href="#">3</a></li> 
-            <li class="page-item"> <a class="page-link" href="#">Next</a> </li> 
-        </ul> 
-    </nav>
-</div>
-
-
-
-
-
-</div>
-
-{% endblock content %}
+    </div>
+             
+            {% endblock content %}
