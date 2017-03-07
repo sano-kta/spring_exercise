@@ -7,9 +7,40 @@
 {{ instance.title }} | {{ block.super }}
 {% endblock head_title %}
 <style>
-     /* h1 {
-    font-size: 26px;
-}*/
+.author-box {
+margin-top: 60px;
+padding: 40px 0;
+border-bottom: 1px solid #f0f0f0; 
+border-top: 1px solid #f0f0f0; 
+}
+.author-box .image {
+float: left;
+margin-right: 10px;
+max-width: 80px;
+border: 1px solid #f0f0f0;
+border-radius: 50%;
+padding: 10px; 
+}
+.author-box .info {
+overflow: hidden; 
+}
+.author-box .info p {
+color: #666;
+font-weight: 300;
+line-height: 24px; 
+}
+.author-box .info h6 {
+font-size: 14px;
+color: #666;
+margin: 0;
+margin-top: 10px;
+padding: 0;
+font-style: italic; 
+}
+.author-box .info h6 a {
+color: #b09f23; 
+}
+}
 </style>
 
  {% block post_detail_link %}
@@ -36,7 +67,9 @@
 {% endif %}
 
 
-
+<div class="row">
+ 
+</div>
 <p><div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 <hr/>
 </p>
@@ -65,13 +98,59 @@ Linkedin
 <div class='row'>
 <div class='col-sm-12 '>
 
+
+     
+<!-- this is content -->
    <div class='post-detail-item'>{{ instance.get_markdown }}</div>
 
     <hr/>
     <br/>
+    <!-- share button -->
+    <hr/>
 
+
+
+
+
+    <!-- author and recent post-->
+          <div class="row">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Author</h3>
+                </div>
+                <div class="panel-body">
+                      <div class="author-box">
+                          <div class="image">
+                            <a><img src="https://yoast-mercury.s3.amazonaws.com/uploads/2015/09/Avatar_Joost_500x500.png" class="img-responsive" alt="No Internet"
+                            height="52" width="52"/></a>
+                          </div>
+                          <div class="info">
+                            <p>Python enthusiast, Linux enthusiast and Senior writer at Learning Academy.<br>
+                            website:<a href="https://vimm0-blog.herokuapp.com">https://vimm0-blog.herokuapp.com</a></p>
+                            <h6><a href="https://vimm0.github.io" title="personal-website">Vimm0 |</a> kathmandu</h6>
+                          </div>
+                      </div>     
+                </div>
+              </div>
+
+
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Related Posts</h3>
+                  </div>
+                   <ul class="list-group">
+                       <li class="list-group-item">Cras justo odio</li> 
+                       <li class="list-group-item">Dapibus ac facilisis in</li> 
+                       <li class="list-group-item">Morbi leo risus</li> 
+                       <li class="list-group-item">Porta ac consectetur ac</li> 
+                       <li class="list-group-item">Vestibulum at eros</li>
+                   </ul>    
+              </div>
+          </div>
+ 
+
+<!-- comments -->
     <div>
-
         <p class='lead'>Comments</p>
         {% if request.user.is_authenticated %}
         <form method="POST" action="."> {% csrf_token %}
@@ -95,14 +174,14 @@ Linkedin
                 </blockquote>
              {% endfor %}
              {% if request.user.is_authenticated %}
-            <form method="POST" action="."> {% csrf_token %}
-                {{ comment_form|crispy }}
-                <input type='hidden' name='parent_id' value='{{ comment.id }}'>
-                <input type='submit' value='Reply' class='btn btn-default'>
-            </form>
+                <form method="POST" action="."> {% csrf_token %}
+                    {{ comment_form|crispy }}
+                    <input type='hidden' name='parent_id' value='{{ comment.id }}'>
+                    <input type='submit' value='Reply' class='btn btn-default'>
+                </form>
             {% else %}
-        <p>You must login to comment </p>
-        {% endif %}
+                <p>You must login to comment </p>
+             {% endif %}
         </div>
 
         </blockquote>

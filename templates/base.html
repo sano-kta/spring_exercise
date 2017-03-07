@@ -190,6 +190,10 @@ Follow me on Twitter @maridlcrmn
     .navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
     .navbar .nav-collapse .navbar-form { margin: 0; }
     .nav-collapse>li { float: none; }
+    .span10{
+
+padding-right:30%;
+   
 }
 a:hover,
 a:focus {
@@ -226,7 +230,6 @@ a:-webkit-any-link {
     color: #CCCCCC;
 }
 
-
 /*custom bullets*/
 
 </style>
@@ -242,7 +245,7 @@ a:-webkit-any-link {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{% url 'posts:list' %}">Learning</a>
+          <a class="navbar-brand" href="{% url 'posts:list' %}">Learning Home</a>
         </div>
     
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -254,7 +257,7 @@ a:-webkit-any-link {
             <li><a href="#">Works</a></li>
             <li><a href="#">News</a></li>
             <li><a href="#">Contact</a></li>
-            <!-- <li>
+           <!--  <li>
               <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
             </li> -->
           </ul>
@@ -271,95 +274,92 @@ a:-webkit-any-link {
     </nav><!-- /.navbar -->
 
 <div class="container-fluid">
-  <div class="row-fluid" style="margin-top: 5em;width: 100%; padding-left:20%;">
+  <div class="row-fluid" style="margin-top: 5em; padding-left:20%;">
     <!-- <div class="span2 col-sm-8 col-md-9"> -->
     <div class="span2" style="width: 75%;">
 
       <!--Body  content block content from other templates-->
       {% block content %}{% endblock content %}
     </div>
-    <div class="span10 col-sm-3" >
+    <div class="span10 col-sm-3 col-sm-offset-1">
       <!--Sidebar content-->
-                     <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
-                        <div class="panel-body">
-                            <h3 style="font-size: 18px;"><img src="http://www.icon2s.com/wp-content/uploads/2013/07/black-white-metro-python-icon.png" eight="28" width="28" /> Python Learning</h3>
-                            <p>"Python has been an important part of Google since the beginning, and remains so as the system grows and evolves. Today dozens of Google engineers use Python, and we're looking for more people with skills in this language." said Peter Norvig, director of search quality at Google, Inc.</p>
-                        </div>
-                     <!-- </div> -->
+         <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
+            <div class="panel-body">
+                <h3 style="font-size: 18px;"><img src="http://www.icon2s.com/wp-content/uploads/2013/07/black-white-metro-python-icon.png" eight="28" width="28" /> Python Learning</h3>
+                <p>"Python has been an important part of Google since the beginning, and remains so as the system grows and evolves. Today dozens of Google engineers use Python, and we're looking for more people with skills in this language." said Peter Norvig, director of search quality at Google, Inc.</p>
+                <hr>
             </div>
-            <!-- <div class="col-sm-3"> -->
-                <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
-                    <div class="panel-body">
-                        <a href="#">
-                          Join as Author
-                          
-                        </a>
-                    </div>
-                </div>
-            <!-- </div> -->
-            <!-- <div class="col-sm-3"> -->
-                <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
-                    <div class="panel-body">
-                        <h3 style="font-size: 18px;">Recent Post</h3>
-                        <ul class="list-group">
-                             <li class="list-group-item">Cras justo odio</li> 
-                             <li class="list-group-item">Dapibus ac facilisis in</li> 
-                             <li class="list-group-item">Morbi leo risus</li> 
-                             <li class="list-group-item">Porta ac consectetur ac</li> 
-                             <li class="list-group-item">Vestibulum at eros</li>
-                         </ul>
-
-                       
-                    </div>
-                </div>
-            <!-- </div> -->
-            <!-- <div class="col-sm-3"> -->
-                <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
-                    <div class="panel-body">
-                        <h3 style="font-size: 18px;">Recent Post</h3>
-                         <ul class="custom-bullet">
-                            <li>date library</li>
-                            <li>string Manipulation</li>
-                            <li>data hierarchy</li>
-                            <li>data structure</li>
-                            <li>data normalization</li>
-                        </ul>
-                    </div>
-                </div>
-            <!-- </div> -->
-            <!-- <div class="col-sm-3"> -->
-                <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
-                    <div class="panel-body">
-                        <h3 style="font-size: 18px;">Recent Comments</h3>
-                        <ul class="custom-bullet">
-                            <li> date library</li>
-                            <li >string Manipulation</li>
-                            <li>data hierarchy</li>
-                            <li>data structure</li>
-                            <li>data normalization</li>
-                        </ul>
-                    </div>
-                </div>
-            <!-- </div> -->
-            <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
-                    <div class="panel-body">
-                        <h3 style="font-size: 18px;">Popular Tags</h3>
-                        <ul class="list-group"> 
-                            <li class="list-group-item justify-content-between"> Cras justo odio <span class="badge badge-default badge-pill">14</span> 
-                            </li> 
-                            <li class="list-group-item justify-content-between"> Dapibus ac facilisis in <span class="badge badge-default badge-pill">2</span> 
-                            </li> 
-                            <li class="list-group-item justify-content-between"> Morbi leo risus <span class="badge badge-default badge-pill">1</span> 
-                            </li> 
-                        </ul>
-
-                            <!-- <a href="#" class="btn btn-default">Inbox <span class="badge">42</span></a>
-                            <a href="#" class="btn btn-default">Inbox <span class="badge">42</span></a>
-                            <a href="#" class="btn btn-default">Inbox <span class="badge">42</span></a>
-                            <a href="#" class="btn btn-default">Inbox <span class="badge">42</span></a>
-                            <a href="#" class="btn btn-default">Inbox <span class="badge">42</span></a> -->
-                    </div>
+         <!-- </div> -->
+        </div>
+<!-- <div class="col-sm-3"> -->
+        <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
+            <div class="panel-body" style="text-align: center;">
+                <button type="submit" class="btn btn-default">
+                  Join as Author
+                </button>
             </div>
+        </div>
+<!-- </div> -->
+<!-- <div class="col-sm-3"> -->
+        <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
+            <div class="panel-body">
+                <h3 style="font-size: 18px;">Recent Post</h3>
+                <ul class="list-group">
+                     <li class="list-group-item">Cras justo odio</li> 
+                     <li class="list-group-item">Dapibus ac facilisis in</li> 
+                     <li class="list-group-item">Morbi leo risus</li> 
+                     <li class="list-group-item">Porta ac consectetur ac</li> 
+                     <li class="list-group-item">Vestibulum at eros</li>
+                 </ul>
+            </div>
+        </div>
+<!-- </div> -->
+<!-- <div class="col-sm-3"> -->
+        <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
+            <div class="panel-body">
+                <h3 style="font-size: 18px;">Recent Post</h3>
+                 <ul class="custom-bullet">
+                    <li>date library</li>
+                    <li>string Manipulation</li>
+                    <li>data hierarchy</li>
+                    <li>data structure</li>
+                    <li>data normalization</li>
+                </ul>
+            </div>
+        </div>
+<!-- </div> -->
+<!-- <div class="col-sm-3"> -->
+        <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
+            <div class="panel-body">
+                <h3 style="font-size: 18px;">Recent Comments</h3>
+                <ul class="custom-bullet">
+                    <li> date library</li>
+                    <li >string Manipulation</li>
+                    <li>data hierarchy</li>
+                    <li>data structure</li>
+                    <li>data normalization</li>
+                </ul>
+            </div>
+        </div>
+<!-- </div> -->
+        <div class="panel panel-default" style="border:0; background-color:#f5f5f5;">
+                <div class="panel-body">
+                    <h3 style="font-size: 18px;">Popular Tags</h3>
+                    <ul class="list-group"> 
+                        <li class="list-group-item justify-content-between"> Cras justo odio <span class="badge badge-default badge-pill">6</span> 
+                        </li> 
+                        <li class="list-group-item justify-content-between"> Dapibus ac faci<span class="badge badge-default badge-pill">2</span> 
+                        </li> 
+                        <li class="list-group-item justify-content-between"> Morbi leo risus <span class="badge badge-default badge-pill">1</span> 
+                        </li> 
+                    </ul>
+                        <!-- <a href="#" class="btn btn-default">Inbox <span class="badge">42</span></a>
+                        <a href="#" class="btn btn-default">Inbox <span class="badge">42</span></a>
+                        <a href="#" class="btn btn-default">Inbox <span class="badge">42</span></a>
+                        <a href="#" class="btn btn-default">Inbox <span class="badge">42</span></a>
+                        <a href="#" class="btn btn-default">Inbox <span class="badge">42</span></a> -->
+                </div>
+        </div>
     </div>
   </div>
 </div>
@@ -375,15 +375,6 @@ a:-webkit-any-link {
 <p class="text-center">Made with <i class="fa fa-heart-o" aria-hidden="true"></i> having excessive <i class="fa fa-coffee" aria-hidden="true"></i> and <i class="fa fa-music" aria-hidden="true"></i> <br>by vimm0.<br>Powered by Django.
 </p>
 </div>
-
-
-
-      
-
-    
-   
-
-
 
 <!-- Latest compiled and minified JavaScript -->
 <script   src="http://code.jquery.com/jquery-1.12.2.min.js"   integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk="   crossorigin="anonymous"></script>
