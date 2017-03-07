@@ -1,3 +1,7 @@
+![](https://cdn-images-1.medium.com/max/800/1*WZl4TRawuh-yZtji-SB7Fg.png)
+
+***
+
 # spring_exercise
 consists django experimental codes for blog app
 
